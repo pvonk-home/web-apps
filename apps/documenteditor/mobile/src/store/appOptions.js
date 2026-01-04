@@ -178,7 +178,7 @@ export class storeAppOptions {
             permissions.edit = permissions.review = false;
         this.review = (permissions.review === undefined) ? (permissions.edit !== false) : permissions.review;
         this.canAnalytics = params.asc_getIsAnalyticsEnable();
-        this.canLicense = (licType === Asc.c_oLicenseResult.Success || licType === Asc.c_oLicenseResult.SuccessLimit);
+        this.canLicense = (licType === Asc.c_oLicenseResult.Success || licType === Asc.c_oLicenseResult.SuccessLimit || licType === Asc.c_oLicenseResult.ConnectionsOS || licType === Asc.c_oLicenseResult.UsersCountOS);
         this.isLightVersion = params.asc_getIsLight();
         this.buildVersion = params.asc_getBuildVersion();
         this.canCoAuthoring = !this.isLightVersion;
