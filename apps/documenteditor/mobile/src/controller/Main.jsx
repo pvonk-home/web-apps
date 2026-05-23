@@ -312,7 +312,7 @@ class MainController extends Component {
                     return;
                 }
 
-                this.appOptions.canLicense = (licType === Asc.c_oLicenseResult.Success || licType === Asc.c_oLicenseResult.SuccessLimit);
+                this.appOptions.canLicense = (licType === Asc.c_oLicenseResult.Success || licType === Asc.c_oLicenseResult.SuccessLimit || licType === Asc.c_oLicenseResult.ConnectionsOS || licType === Asc.c_oLicenseResult.UsersCountOS);
 
                 const storeAppOptions = this.props.storeAppOptions;
                 const editorConfig = window.native?.editorConfig;
@@ -324,7 +324,7 @@ class MainController extends Component {
                 else if ( editorConfig && editorConfig.mobileForceView !== undefined )
                     isMobileForceView = editorConfig.mobileForceView;
 
-                const isForceView = isMobileForceView ?? customization?.mobile?.forceView ?? true;
+                const isForceView = isMobileForceView ?? customization?.mobile?.forceView ?? false;
 
                 if(customization?.mobileForceView !== undefined && customization?.mobileForceView !== null) {
                     console.warn("Obsolete: The mobileForceView parameter is deprecated. Please use the forceView parameter from customization.mobile block");
